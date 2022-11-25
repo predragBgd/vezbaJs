@@ -23,6 +23,24 @@ switch (x) {
 for (let i = 1; i < 11; i++) {
   console.log(i);
 }
+
+// primer for in  petlje na nizu
+// prolazi kroz niz pomoću index-a
+let gradovi = ["Peking", "Moskva", "Los Andjeles", "Tel Aviv", "Njujork"];
+for (let index in gradovi) {
+  console.log(gradovi[index]);
+}
+
+// primer for in  petlje na objektu
+let osoba = {
+  ime: "Marija",
+  prezime: "Ivić",
+  jmbg: 4209843,
+};
+for (property in osoba) {
+  console.log(property, osoba[property]);
+}
+
 //wile petlja
 let br = 0;
 while (br <= 5) {

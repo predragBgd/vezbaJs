@@ -82,9 +82,17 @@ let turisti = [
   },
 ];
 function posete() {
-  //  return turisti[1].posetio;
   turisti.forEach((turista) => {
-    console.log(turista.ime);
+    turista.posetio.map((poseta) => {
+      if (poseta === "Atina") {
+        return turista.ime;
+      }
+    });
   });
 }
-posete();
+console.log(posete());
+
+let imeTuriste = turisti.map((turista) => {
+  return turista.ime;
+});
+console.log(imeTuriste + " je posetila ");

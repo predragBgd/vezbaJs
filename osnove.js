@@ -1,3 +1,4 @@
+// "use strikt" ---------------------------Komanda za korišćenje striktnog moda
 /*
 Vrste podataka:
     Promenjiva:
@@ -31,7 +32,7 @@ Logički operatori:
     (&&) -------- I jedno i drugo
     (||) -------- Ili jedno ili drugo.. 
     (!=) -------- Nije jednako.
-    (==) ------- Poredjenje da li su dve promenjive iste vrednosti.
+    (<==>) ------- Poredjenje da li su dve promenjive iste vrednosti.
     (===) ----- Strogo poredjenje da li su dve promenjive iste vrednosti i da li su vrednosti istog tipa .
 */
 let c = a + b;
@@ -83,9 +84,15 @@ Nizovi:
         .unshift() -------------------------------- Dodaje element na početak niza niza.
         .splice() --------------------------------- Iseca niz i vraća novi niz od elemenata koje je isekao. U zagradu se upisuje indeks početnog i krajnjeg elementa.Elementi se isecaju iz niza
         .slice() ---------------------------------- Iseca niz od odredjenog elemenata i gradi novi niz. U zagradu se upisuje indeks početnog i krajnjeg elementa. Elementi ostaju i u starom nizu.
-        .join() ------------------------------- Vraća elemente niza kao string razdvojene zarezima.
+        .join() ----------------------------------- Vraća elemente niza kao string razdvojene zarezima.
+        .concat() --------------------------------- Spaja dva niza.
+        .sort() ----------------------------------- Sortira elemente u nizu abecedno.
+        .sort((a,b)=>{return a-b}) ---------------- Sortira brojeve od manjeg ka većem.
+        .reverse() -------------------------------- Sortira elemente u nizu obrnuto od trenutnog.
 */
 let niz1 = [1, 2, 3, 4, 5, 6, 7, 8];
+let niz3 = ["ada", "dada", "mad", "bed", "axl"];
+console.log(niz3.reverse());
 console.log(niz1.length);
 niz1.pop(); // izbacio zadnji el (8)
 niz1.push(8, 9); // dodao zadnji el (8,9)
@@ -93,7 +100,7 @@ console.log(niz1);
 let niz2 = [niz1.pop()]; // Ubacio u niz2 zadnj el od niz1
 console.log("niz2", niz2);
 let promenjiva = niz1.shift(); // Dodao vrednost promenjivoj prvog el niza1
-console.log("promenjiva", promenjiva);
+console.log("Pomenjiva", promenjiva);
 niz1.unshift(0); // Dodao el na početak niza
 console.log(niz1);
 let niz4 = niz1.splice(1, 2); // Isekao iz niza i dodao u novi niz el sa odgovarajucim indexom
@@ -130,7 +137,15 @@ Primer: visedimenzionalniNiz[1][3][1]
  */
 /*
 Objekti:
-    let objekat = {};
+    let objekat = {
+        el1: "el1",
+        el2: "el2",
+    };
+    Za kretanje kroz objekat koristimo ime objekta . ime elementau objektu
+    (primer) objekat.el1
+
+Objekti metode:
+
 */
 
 /*
@@ -142,34 +157,43 @@ String metode:
     .trimEnd() ------------- Sklanja razmake sa početka niza.
     .trimStart() ----------- Sklanja razmake sa kraja niza.
     .slice() --------------- Iseca string. U zagradu se upisuje index pox=cetka i kraja isecanja.
-    .split() --------------- Pretvara string u niz. ("") -- Svaki karakter postaje el niza, (" ") -- Svaka reč postaje el niza.
+    .split() --------------- Pretvara string u niz. ("") -- Svaki karakter postaje el niza, (" ") -- Svaka  reč postaje el niza.
     .toLowerCase() --------- Vraća niz sa malim slovima.
     .toUpperCase() --------- Vraća niz sa velikom slovima.
+    .toLocaleLowerCase() --- Isto kao i prethodna funkcija samo prati lokalna unicode pravila.
+    .toLocaleUpperCase() --- Isto kao i prethodna funkcija samo prati lokalna unicode pravila.
     .substring() ----------- Iseca string i vraća isečeni string u zagradu se upisuje index pocetnog i zadnjeg karaktera.
     .substr() -------------- Iseca string i vraća isečeni string u zagradu se upisuje index pocetnog i zadnjeg karaktera.
     .toString() ------------ Pretvara broj u string.
     .replace() ------------- Pretraži string i zameni staru vrednost novom. U zagrade se upiše stara i nova vrednost.
     .repeat() -------------- Ispise ponovo string koliko se upiše u zagradi.
     .valueOf() ------------- Vraca vrednost stringa.
+    .includes() ------------ Ako string sadrži odredjeni karakter vraća true/false.
+    .startsWith() ---------- Ako string počinje sa odredjenim karakterom vraća true/false.
+    .endsWith() ------------ Ako string zavrsava sa odredjenim karakterom vraća true/false.
+    .indexOf() ------------- Vraca vrednost prvog elementa sa odgovarajucom vrednošću.
+    .lastIndexOf() --------- Vraca vrednost zadnjeg elementa sa odgovarajucom vrednošću.
+    .search() -------------- Pretražuje string i vraća index na kom se vrednost nalazi.
 
 ------------
 
-    toLocaleLowerCase()	Returns a string converted to lowercase letters, using the host's locale
-    toLocaleUpperCase()	Returns a string converted to uppercase letters, using the host's locale
-    
-    -----constructor	 Returns the string's constructor function
-    startsWith()	Checks whether a string begins with specified characters
-    endsWith()	Returns if a string ends with a specified value
-    includes()	Returns if a string contains a specified value
-    indexOf()	Returns the index (position) of the first occurrence of a value in a string
-    lastIndexOf()	Returns the index (position) of the last occurrence of a value in a string
-    
-    localeCompare()	Compares two strings in the current locale
-    match()	Searches a string for a value, or a regular expression, and returns the matches
-    prototype	Allows you to add properties and methods to an object
-    search()	Searches a string for a value, or regular expression, and returns the index (position) of the match
-*/
+    .constructor	 Returns the string's constructor function
+    .prototype	Allows you to add properties and methods to an object
 
+*/
+let str1 = "Mama";
+let str2 = "tata";
+let str3 = "baba";
+let str4 = "deda";
+let str5 = "dedaujka";
+console.log(str5.includes(str4));
+if (str5.includes(str4)) {
+  console.log(str5.toUpperCase());
+  console.log(str5.search("a"));
+  console.log(str5.indexOf("a"));
+  console.log(str5.lastIndexOf("a"));
+  console.log(str5.constructor());
+}
 function namew() {
   let br = 1238888888;
   return br.toString().substring(2, 5);

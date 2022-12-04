@@ -59,40 +59,54 @@ let turisti = [
   },
 ];
 */
-// function posetiociGradova(grad) {
-//   for (let i = 0; i <= turisti.posetio.length; i++) {
-//     if (grad == turisti.posetio[i]) {
-//       return turisti.ime + " " + turisti.prezime;
-//     }
-//   }
-// }
-// console.log(posetiociGradova("London"));
+
 let turisti = [
   {
     ime: "Marija",
     prezime: "Ivić",
     jmbg: 4209843,
     posetio: ["Čikago", "Tel Aviv", "Peking"],
+    zelje: ["Njujork", "Tirana", "Barselona", "London"],
   },
   {
     ime: "Biljana",
     prezime: "Lekić",
     jmbg: 8147409,
     posetio: ["Atina", "Tokio", "Njujork", "Pariz"],
+    zelje: ["Madrid", "Tirana", "Solun"],
   },
 ];
-function posete() {
+
+// brise grad turisti
+function briseGradTuristi(ime, grad) {
   turisti.forEach((turista) => {
-    turista.posetio.map((poseta) => {
-      if (poseta === "Atina") {
-        return turista.ime;
+    if (turista.ime == ime) {
+      for (let i in turista.zelje) {
+        if (turista.zelje[i] == grad) {
+          turista.zelje.splice(i, 1);
+        }
       }
-    });
+    }
   });
 }
-console.log(posete());
 
-let imeTuriste = turisti.map((turista) => {
-  return turista.ime;
+//dodaje grad turisti
+function dodajGradTuristi(ime, grad) {
+  turisti.forEach((turista) => {
+    if (turista.ime == ime) {
+      turista.posetio.push(grad);
+    } else if (briseGradTuristi(ime, grad));
+  });
+}
+dodajGradTuristi("Biljana", "Tirana");
+
+// ispisuje turiste
+turisti.forEach((turista) => {
+  console.log(
+    turista.ime +
+      " Posetila: " +
+      turista.posetio +
+      " Želi da poseti: " +
+      turista.zelje
+  );
 });
-console.log(imeTuriste + " je posetila ");

@@ -2,7 +2,7 @@
 
 // Ako je izraz u uslovu true onda se petlj izvrsava
 if (false) {
-  console.log(a1 + a3);
+  console.log("True");
 }
 
 let x = 4;

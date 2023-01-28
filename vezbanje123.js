@@ -111,7 +111,7 @@ kocka(3);
 
 // Nalazenje srednje vrednosti i medijalnog broja u nizu
 
-let arr = [0, 3, 8, 3, 1, 9, 11];
+let arr = [5, 4, 5, 3];
 let sumNo = 0;
 for (let i = 0; i < arr.length; i++) {
   sumNo += arr[i];
@@ -128,11 +128,11 @@ console.log(arrSlozen);
 
 if (arrSlozen.length % 2 != 0) {
   let indexBr = Math.ceil(arrSlozen.length / 2);
-  console.log("yyyy" + arrSlozen[indexBr - 1]);
+  console.log("Neparan niz " + arrSlozen[indexBr - 1]);
 }
 if (arrSlozen.length % 2 == 0) {
   let indexBr = arrSlozen.length / 2;
-  console.log("uuuu" + (arrSlozen[indexBr - 1] + arrSlozen[indexBr]) / 2);
+  console.log("Paran niz " + (arrSlozen[indexBr - 1] + arrSlozen[indexBr]) / 2);
 }
 //console.log(arrSlozen[arrSlozen.length / 2]);
 
